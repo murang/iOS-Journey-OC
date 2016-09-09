@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomPickerViewController : UIViewController
-
+    <UIPickerViewDelegate, UIPickerViewDataSource>
 @end
