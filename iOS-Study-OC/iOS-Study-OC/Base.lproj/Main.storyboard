@@ -132,9 +132,35 @@
                     <view key="view" contentMode="scaleToFill" id="8hR-am-mrG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TNh-3K-PAp">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="HHV-Wf-a39" id="fMf-XL-Yx3"/>
+                                    <outlet property="delegate" destination="HHV-Wf-a39" id="JJW-le-tos"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEP-sI-Bp7">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonPress:" destination="HHV-Wf-a39" eventType="touchUpInside" id="pYe-Ck-ee6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aEP-sI-Bp7" firstAttribute="centerY" secondItem="8hR-am-mrG" secondAttribute="centerY" id="8Dj-cf-42m"/>
+                            <constraint firstItem="TNh-3K-PAp" firstAttribute="leading" secondItem="8hR-am-mrG" secondAttribute="leading" id="Hzc-O7-76g"/>
+                            <constraint firstItem="TNh-3K-PAp" firstAttribute="centerX" secondItem="aEP-sI-Bp7" secondAttribute="centerX" id="JJ4-bD-hd6"/>
+                            <constraint firstItem="TNh-3K-PAp" firstAttribute="top" secondItem="8hR-am-mrG" secondAttribute="top" id="Jkv-fu-ldn"/>
+                            <constraint firstAttribute="trailing" secondItem="TNh-3K-PAp" secondAttribute="trailing" id="LRo-5H-fhW"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Double" image="doubleicon" id="VFK-2z-4z8"/>
+                    <connections>
+                        <outlet property="doublePicker" destination="TNh-3K-PAp" id="JLY-vX-s2D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f51-Vq-p5I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

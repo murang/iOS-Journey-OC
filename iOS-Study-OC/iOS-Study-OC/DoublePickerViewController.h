@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DoublePickerViewController : UIViewController
-
+    <UIPickerViewDelegate, UIPickerViewDataSource>
 @end
