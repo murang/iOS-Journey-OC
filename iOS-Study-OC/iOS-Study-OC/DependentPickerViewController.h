@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DependentPickerViewController : UIViewController
-
+    <UIPickerViewDelegate, UIPickerViewDataSource>
 @end

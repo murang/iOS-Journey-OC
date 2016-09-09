@@ -177,9 +177,35 @@
                     <view key="view" contentMode="scaleToFill" id="I3x-os-G1o">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Zg-U6-9un">
+                                <rect key="frame" x="277" y="285" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="buttonPress:" destination="9ec-3t-6MC" eventType="touchUpInside" id="JY2-pd-UKO"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1Q-sa-hrU">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9ec-3t-6MC" id="1S1-W2-ekO"/>
+                                    <outlet property="delegate" destination="9ec-3t-6MC" id="wjY-Fa-GCn"/>
+                                </connections>
+                            </pickerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f1Q-sa-hrU" firstAttribute="top" secondItem="I3x-os-G1o" secondAttribute="top" id="858-1B-k2b"/>
+                            <constraint firstItem="f1Q-sa-hrU" firstAttribute="centerX" secondItem="6Zg-U6-9un" secondAttribute="centerX" id="DlE-Dm-gV4"/>
+                            <constraint firstItem="6Zg-U6-9un" firstAttribute="centerY" secondItem="I3x-os-G1o" secondAttribute="centerY" id="Gf1-I3-CKn"/>
+                            <constraint firstAttribute="trailing" secondItem="f1Q-sa-hrU" secondAttribute="trailing" id="H0y-3U-qyX"/>
+                            <constraint firstItem="f1Q-sa-hrU" firstAttribute="leading" secondItem="I3x-os-G1o" secondAttribute="leading" id="HM0-jK-Gj5"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dependent" image="dependenticon" id="8co-En-7Vj"/>
+                    <connections>
+                        <outlet property="dependentPicker" destination="f1Q-sa-hrU" id="jCY-h3-w3K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JcF-KI-13p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
