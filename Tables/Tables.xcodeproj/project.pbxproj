@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		87AE42B11D8E7D3F009B9EAA /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 87AE42B01D8E7D3F009B9EAA /* CustomTableViewCell.m */; };
 		87E483821D869D6000EB1614 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E483811D869D6000EB1614 /* main.m */; };
 		87E483851D869D6000EB1614 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E483841D869D6000EB1614 /* AppDelegate.m */; };
 		87E483881D869D6000EB1614 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E483871D869D6000EB1614 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		87AE42AF1D8E7D3F009B9EAA /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		87AE42B01D8E7D3F009B9EAA /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		87E4837D1D869D5F00EB1614 /* Tables.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tables.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87E483811D869D6000EB1614 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		87E483831D869D6000EB1614 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				87E4838E1D869D6000EB1614 /* LaunchScreen.storyboard */,
 				87E483911D869D6000EB1614 /* Info.plist */,
 				87E483801D869D6000EB1614 /* Supporting Files */,
+				87AE42AF1D8E7D3F009B9EAA /* CustomTableViewCell.h */,
+				87AE42B01D8E7D3F009B9EAA /* CustomTableViewCell.m */,
 			);
 			path = Tables;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			files = (
 				87E483881D869D6000EB1614 /* ViewController.m in Sources */,
 				87E483851D869D6000EB1614 /* AppDelegate.m in Sources */,
+				87AE42B11D8E7D3F009B9EAA /* CustomTableViewCell.m in Sources */,
 				87E483821D869D6000EB1614 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +308,7 @@
 				87E483961D869D6000EB1614 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RnC-K2-j0c">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Usn-E6-Vkc"/>
@@ -31,13 +31,13 @@
                             <constraint firstAttribute="trailing" secondItem="RnC-K2-j0c" secondAttribute="trailing" id="9yN-IY-Ugb"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="RnC-K2-j0c" secondAttribute="bottom" id="XsC-mO-6Rf"/>
                             <constraint firstItem="RnC-K2-j0c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ba1-RM-NMu"/>
-                            <constraint firstItem="RnC-K2-j0c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="wS8-nA-rtm"/>
+                            <constraint firstItem="RnC-K2-j0c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="wS8-nA-rtm"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="308"/>
+            <point key="canvasLocation" x="232" y="277"/>
         </scene>
     </scenes>
 </document>
