@@ -7,10 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "CustomTableViewCell.h"
 
 @interface ViewController ()
 
 @property (strong, nonatomic) NSArray *list;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -19,7 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _list = @[@"zhao",@"qian",@"shun",@"li",@"zhou",@"wu",@"zhen",@"wang",@"zhao",@"qian",@"shun",@"li",@"zhou",@"wu",@"zhen",@"wang",@"zhao",@"qian",@"shun",@"li",@"zhou",@"wu",@"zhen",@"wang"];
+    self.list = @[@{@"Name" : @"MacBook Air", @"Color" : @"Silver"},
+                  @{@"Name" : @"MacBook Pro", @"Color" : @"Silver"},
+                  @{@"Name" : @"iMac", @"Color" : @"Silver"},
+                  @{@"Name" : @"Mac Mini", @"Color" : @"Silver"},
+                  @{@"Name" : @"Mac Pro", @"Color" : @"Black"}];
+    [_tableView registerClass:[CustomTableViewCell class] forCellReuseIdentifier:@"customtv"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,6 +39,11 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    CustomTableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"customtv" forIndexPath:indexPath];
+    NSDictionary* dic = _list[indexPath.row];
+    cell.name = dic[@"Name"];
+    cell.color = dic[@"Color"];
+    /*
     static NSString *identifier = @"SinpleTableIdenty";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if(cell == nil){
@@ -44,6 +56,7 @@
     cell.imageView.image = img;
     UIImage *himg = [UIImage imageNamed:@"star2"];
     cell.imageView.highlightedImage = himg;
+     */
     return cell;
 }
 

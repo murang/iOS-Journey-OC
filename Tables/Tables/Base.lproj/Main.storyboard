@@ -22,7 +22,6 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Usn-E6-Vkc"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="f7J-WO-DCv"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -34,6 +33,9 @@
                             <constraint firstItem="RnC-K2-j0c" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="wS8-nA-rtm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="RnC-K2-j0c" id="m7F-g2-YDa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
