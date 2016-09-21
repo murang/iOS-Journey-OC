@@ -10,8 +10,8 @@
 
 @interface CustomTableViewCell ()
 
-@property (strong, nonatomic) UILabel* nameLabel;
-@property (strong, nonatomic) UILabel* colorLabel;
+@property (strong, nonatomic) IBOutlet UILabel* nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel* colorLabel;
 
 @end
 
@@ -28,6 +28,7 @@
     // Configure the view for the selected state
 }
 
+/*
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if(self){
@@ -53,6 +54,7 @@
     }
     return self;
 }
+ */
 
 -(void)setName:(NSString*)n{
     if(![n isEqualToString:_name]){
@@ -60,6 +62,7 @@
         _nameLabel.text = _name;
     }
 }
+
 -(void)setColor:(NSString*)c{
     if(![c isEqualToString:_color]){
         _color = [c copy];

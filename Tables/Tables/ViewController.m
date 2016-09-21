@@ -26,7 +26,9 @@
                   @{@"Name" : @"iMac", @"Color" : @"Silver"},
                   @{@"Name" : @"Mac Mini", @"Color" : @"Silver"},
                   @{@"Name" : @"Mac Pro", @"Color" : @"Black"}];
-    [_tableView registerClass:[CustomTableViewCell class] forCellReuseIdentifier:@"customtv"];
+//    [_tableView registerClass:[CustomTableViewCell class] forCellReuseIdentifier:@"customtv"];
+    UINib* nib = [UINib nibWithNibName:@"CustomCell" bundle:nil];
+    [_tableView registerNib:nib forCellReuseIdentifier:@"customtv"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,24 +62,28 @@
     return cell;
 }
 
--(NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return indexPath.row % 8;
-}
+//-(NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return indexPath.row % 8;
+//}
 
--(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if(indexPath.row%2 == 0){
-        return nil;
-    }else{
-        return indexPath;
-    }
-}
+//-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    if(indexPath.row%2 == 0){
+//        return nil;
+//    }else{
+//        return indexPath;
+//    }
+//}
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:_list[indexPath.row] message:@"fuck!" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"yyy" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:action];
-    [self presentViewController:alert animated:YES completion:nil];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    UIAlertController *alert = [UIAlertController alertControllerWithTitle:_list[indexPath.row] message:@"fuck!" preferredStyle:UIAlertControllerStyleAlert];
+//    UIAlertAction *action = [UIAlertAction actionWithTitle:@"yyy" style:UIAlertActionStyleDefault handler:nil];
+//    [alert addAction:action];
+//    [self presentViewController:alert animated:YES completion:nil];
+//    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+//}
+
+//-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    return 65;
+//}
 
 @end
