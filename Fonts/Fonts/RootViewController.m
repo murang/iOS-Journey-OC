@@ -8,6 +8,7 @@
 
 #import "RootViewController.h"
 #import "FavoriteFonts.h"
+#import "FontListTableViewController.h"
 
 @interface RootViewController ()
 
@@ -57,24 +58,42 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    if([self.favoriteFonts.favorites count] > 0){
+        return 2;
+    }
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    if(section == 0){
+        return [self.familyNames count];
+    }
+    return 1;
 }
 
-/*
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    if(section == 0){
+        return @"All Font Families";
+    }
+    return @"Favorite Fonts";
+}
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
+    static NSString* FamilyNameCell = @"FamilyName";
+    static NSString* FavoriteCell = @"Favorites";
+    UITableViewCell *cell = nil;
+    if(indexPath.section == 0){
+        cell = [tableView dequeueReusableCellWithIdentifier:FamilyNameCell forIndexPath:indexPath];
+        cell.textLabel.font = [self fontForDisplayAtIndexPath:indexPath];
+        cell.textLabel.text = self.familyNames[indexPath.row];
+        cell.detailTextLabel.text = self.familyNames[indexPath.row];
+    }else{
+        cell = [tableView dequeueReusableCellWithIdentifier:FavoriteCell forIndexPath:indexPath];
+    }
     return cell;
 }
-*/
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -110,14 +129,26 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
+    FontListTableViewController* flView = segue.destinationViewController;
+    if(indexPath.section == 0){
+        NSString* familyName = self.familyNames[indexPath.row];
+        flView.fontNames = [[UIFont fontNamesForFamilyName:familyName] sortedArrayUsingSelector:@selector(compare:)];
+        flView.navigationItem.title = familyName;
+        flView.showFavorites = NO;
+    }else{
+        flView.fontNames = self.favoriteFonts.favorites;
+        flView.navigationItem.title = @"Favorites";
+        flView.showFavorites = YES;
+    }
 }
-*/
+
 
 @end
