@@ -22,7 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.estimatedRowHeight = 200;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.familyNames = [[UIFont familyNames] sortedArrayUsingSelector:@selector(compare:)];
     UIFont* preferredFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     self.cellSize = preferredFont.pointSize;

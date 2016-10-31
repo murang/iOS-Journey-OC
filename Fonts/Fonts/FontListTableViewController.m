@@ -8,6 +8,7 @@
 
 #import "FontListTableViewController.h"
 #import "FavoriteFonts.h"
+#import "FontSizeTableViewController.h"
 
 @interface FontListTableViewController ()
 
@@ -19,7 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.estimatedRowHeight = 200;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     UIFont* preferredTableViewFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     self.cellPointSize = preferredTableViewFont.pointSize;
     
@@ -106,14 +108,17 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
+    UIFont* font = [self fontForDisplayAtIndexPath:indexPath];
+    [segue.destinationViewController navigationItem].title = font.fontName;
+    FontSizeTableViewController* sizeView = segue.destinationViewController;
+    sizeView.font = font;
 }
-*/
+
 
 @end
