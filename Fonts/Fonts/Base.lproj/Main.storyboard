@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Fonts-->
@@ -73,6 +74,78 @@
             </objects>
             <point key="canvasLocation" x="597" y="228"/>
         </scene>
+        <!--Font Info View Controller-->
+        <scene sceneID="5cw-Ym-prt">
+            <objects>
+                <viewController id="fY2-W0-ycB" customClass="FontInfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gO0-ge-3rF"/>
+                        <viewControllerLayoutGuide type="bottom" id="4hj-tb-Twi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FWg-Gk-hrc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPV-2J-RPQ">
+                                <rect key="frame" x="538" y="564" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="2HI-lH-bJb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="200" translatesAutoresizingMaskIntoConstraints="NO" id="6vr-ZB-Wd5">
+                                <rect key="frame" x="23" y="560" width="514" height="31"/>
+                                <connections>
+                                    <action selector="slideFontSize:" destination="fY2-W0-ycB" eventType="valueChanged" id="E1u-yO-jwi"/>
+                                </connections>
+                            </slider>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wfa-fI-VNc">
+                                <rect key="frame" x="531" y="525" width="51" height="31"/>
+                                <connections>
+                                    <action selector="toggleFavorite:" destination="fY2-W0-ycB" eventType="valueChanged" id="5Wv-KZ-LBY"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add to favorite:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4p9-vP-Cqm">
+                                <rect key="frame" x="406" y="530" width="117" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHu-J8-NWx">
+                                <rect key="frame" x="20" y="81" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfa-fI-VNc" firstAttribute="trailing" secondItem="FWg-Gk-hrc" secondAttribute="trailingMargin" id="3i3-Gz-YXt"/>
+                            <constraint firstItem="NHu-J8-NWx" firstAttribute="top" secondItem="gO0-ge-3rF" secondAttribute="bottom" constant="17" id="NiC-di-0rF"/>
+                            <constraint firstItem="4hj-tb-Twi" firstAttribute="top" secondItem="6vr-ZB-Wd5" secondAttribute="bottom" constant="10" id="Yun-Ih-7Fu"/>
+                            <constraint firstItem="wfa-fI-VNc" firstAttribute="leading" secondItem="4p9-vP-Cqm" secondAttribute="trailing" constant="8" symbolic="YES" id="b1p-F0-4E4"/>
+                            <constraint firstItem="NPV-2J-RPQ" firstAttribute="leading" secondItem="6vr-ZB-Wd5" secondAttribute="trailing" constant="3" id="bm4-EF-avm"/>
+                            <constraint firstItem="6vr-ZB-Wd5" firstAttribute="centerY" secondItem="NPV-2J-RPQ" secondAttribute="centerY" id="ehG-Aq-KB8"/>
+                            <constraint firstItem="6vr-ZB-Wd5" firstAttribute="leading" secondItem="FWg-Gk-hrc" secondAttribute="leadingMargin" constant="5" id="fNi-iy-E8k"/>
+                            <constraint firstItem="NPV-2J-RPQ" firstAttribute="top" secondItem="wfa-fI-VNc" secondAttribute="bottom" constant="8" symbolic="YES" id="hdW-oR-xxm"/>
+                            <constraint firstItem="NHu-J8-NWx" firstAttribute="leading" secondItem="FWg-Gk-hrc" secondAttribute="leadingMargin" id="hmp-WG-W3S"/>
+                            <constraint firstItem="wfa-fI-VNc" firstAttribute="trailing" secondItem="NPV-2J-RPQ" secondAttribute="trailing" id="v1e-mC-oEf"/>
+                            <constraint firstItem="4p9-vP-Cqm" firstAttribute="centerY" secondItem="wfa-fI-VNc" secondAttribute="centerY" id="w3y-Qt-XJu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="favoriteSwitch" destination="wfa-fI-VNc" id="Ofq-py-QQA"/>
+                        <outlet property="fontSampleLabel" destination="NHu-J8-NWx" id="Pyu-e8-C4M"/>
+                        <outlet property="fontSizeLabel" destination="NPV-2J-RPQ" id="LFO-cF-EsB"/>
+                        <outlet property="fontSizeSlider" destination="6vr-ZB-Wd5" id="mDL-9E-t2J"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pH2-Qx-F9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1486" y="966"/>
+        </scene>
         <!--Font List Table View Controller-->
         <scene sceneID="aGt-1U-mgb">
             <objects>
@@ -106,7 +179,8 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="XIm-52-gwI" kind="show" id="f79-Xd-92U"/>
+                                    <segue destination="XIm-52-gwI" kind="show" identifier="ShowFontSize" id="f79-Xd-92U"/>
+                                    <segue destination="fY2-W0-ycB" kind="show" identifier="ShowFontInfo" trigger="accessoryAction" id="NQd-f4-Ei3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

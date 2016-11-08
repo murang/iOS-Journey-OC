@@ -9,6 +9,7 @@
 #import "FontListTableViewController.h"
 #import "FavoriteFonts.h"
 #import "FontSizeTableViewController.h"
+#import "FontInfoViewController.h"
 
 @interface FontListTableViewController ()
 
@@ -25,6 +26,9 @@
     UIFont* preferredTableViewFont = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     self.cellPointSize = preferredTableViewFont.pointSize;
     
+    if(self.showFavorites){
+        self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -74,31 +78,37 @@
 }
 
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return self.showFavorites;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(self.showFavorites == NO)return;
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
+        NSString* fav = self.fontNames[indexPath.row];
+        [[FavoriteFonts getInstance] removeFavorite:fav];
+        self.fontNames = [FavoriteFonts getInstance].favorites;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
+
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+    [[FavoriteFonts getInstance] moveItemAtIndex:fromIndexPath.row toIndex:toIndexPath.row];
+    self.fontNames = [FavoriteFonts getInstance].favorites;
 }
-*/
+
 
 /*
 // Override to support conditional rearranging of the table view.
@@ -116,8 +126,14 @@
     NSIndexPath* indexPath = [self.tableView indexPathForCell:sender];
     UIFont* font = [self fontForDisplayAtIndexPath:indexPath];
     [segue.destinationViewController navigationItem].title = font.fontName;
-    FontSizeTableViewController* sizeView = segue.destinationViewController;
-    sizeView.font = font;
+    if([segue.identifier isEqualToString:@"ShowFontSize"]){
+        FontSizeTableViewController* sizeView = segue.destinationViewController;
+        sizeView.font = font;
+    }else if([segue.identifier isEqualToString:@"ShowFontInfo"]){
+        FontInfoViewController* infoView = segue.destinationViewController;
+        infoView.font = font;
+        infoView.favorite = [[FavoriteFonts getInstance].favorites containsObject:font.fontName];
+    }
 }
 
 
